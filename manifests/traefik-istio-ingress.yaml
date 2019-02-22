@@ -1,0 +1,16 @@
+# Install the Traefik ingress in the same NS as Istio's ingress (which is configured as a ClusterIP)
+# Route's all traffic to the istio-ingrerssgateway
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-istio-ingress
+  namespace: istio-system
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              serviceName: istio-ingressgateway
+              servicePort: 80

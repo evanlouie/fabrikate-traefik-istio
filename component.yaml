@@ -1,0 +1,10 @@
+name: traefik-istio
+generator: static
+path: ./manifests
+subcomponents:
+  - name: istio
+    source: https://github.com/evanlouie/fabrikate-istio
+    method: git
+  - name: traefik
+    source: https://github.com/evanlouie/fabrikate-traefik/
+    method: git
